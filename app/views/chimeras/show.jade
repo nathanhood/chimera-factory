@@ -1,0 +1,22 @@
+extends ../shared/template
+
+block content
+  #chimera-contain
+    h1.header
+      a.button#new-chimera(href='/chimeras/new') New Chimera
+      #back-button
+        a.button.button-border-primary(href='/chimeras')#search-button Back
+
+
+    #chimeras
+      .chimera
+        .delete
+          form(action='/chimeras/#{chimera._id}/delete', method='POST')
+            button.button.button-border Delete
+        .name#show-name= chimera.name
+        .gender gender: #{chimera.gender}
+        .age age: #{chimera.age}
+        .images
+          img.chim-tail(src='/img/#{chimera.tail}')
+          img.chim-body(src='/img/#{chimera.body}')
+          img.chim-head(src='/img/#{chimera.head}')

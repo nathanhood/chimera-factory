@@ -1,0 +1,28 @@
+extends ../shared/template
+
+block content
+  h1.header New Pet
+  .new-chimera
+    form(method='POST', action='/chimeras')
+      input(name='name', type='text', placeholder='name')
+      input(name='age', type='text', placeholder='age')
+      select(name='gender')
+        option Gender
+        option Male
+        option Female
+      select(name='head')
+        option Head
+        option Cheetah
+        option Deer
+        option Dog
+      select(name='body')
+        option Body
+        option Cheetah
+        option Deer
+        option Dog
+      select(name='tail')
+        option Tail
+        option Cheetah
+        option Deer
+        option Dog
+      button.button#add Add Chimera

@@ -1,0 +1,34 @@
+extends ../shared/template
+
+block content
+  #chimera-contain
+    h1.header Chimeras
+      a.button#new-chimera(href='/chimeras/new') New Chimera
+      #search
+        form(action='/chimeras/search', method='GET')
+          button.button.button-border#search-button Search
+          select.search(name='position')
+            option Position
+            option Head
+            option Body
+            option Tail
+          select.search(name='animal')
+            option Animal
+            option Dog
+            option Deer
+            option Cheetah
+
+
+    #chimeras
+      each chimera in chimeras
+        .chimera
+          .delete
+            form(action='/chimeras/#{chimera._id}/delete', method='POST')
+              button.button.button-border Delete
+          a.name(href='chimeras/' + chimera._id)= chimera.name
+          .gender gender: #{chimera.gender}
+          .age age: #{chimera.age}
+          .images
+            img.chim-tail(src='/img/#{chimera.tail}')
+            img.chim-body(src='/img/#{chimera.body}')
+            img.chim-head(src='/img/#{chimera.head}')

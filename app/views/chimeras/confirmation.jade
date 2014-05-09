@@ -1,0 +1,11 @@
+extends ../shared/template
+
+block content
+  #chimera-contain
+    h1.header= chimera.name
+      a.button#new-chimera(href='/chimeras/new') New Chimera
+
+
+    #chimeras
+      h1 Successfully Created!!
+        a.button#new-chimera(href='/chimeras') View Chimeras
